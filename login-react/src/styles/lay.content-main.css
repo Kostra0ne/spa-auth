@@ -1,0 +1,6 @@
+#content-main {
+  min-height: calc(100vh - (var(--height-header) + var(--height-footer)));
+  position: relative;
+  top: var(--height-header);
+  padding: 40px 15vw 60px 20px;
+}

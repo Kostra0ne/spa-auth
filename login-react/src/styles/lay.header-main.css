@@ -1,0 +1,19 @@
+@import url("./mod.burger.css");
+@import url("./mod.links.css");
+@import url("./mod.logo.css");
+
+#header-main {
+  background: var(--color-dark);
+  position: fixed;
+  height: var(--height-header);
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  padding: 6px 20px 10px;
+}
+
+#header-main .nav {
+  flex: 1;
+}

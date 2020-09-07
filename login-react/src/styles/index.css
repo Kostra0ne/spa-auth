@@ -1,0 +1,86 @@
+@import url("./reset.css");
+@import url("./vars.css");
+@import url("./utils.form.css");
+@import url("./lay.header-main.css");
+@import url("./lay.content-main.css");
+@import url("./lay.content-main.css");
+@import url("./lay.nav.css");
+
+.title {
+  max-width: max-content;
+  border-bottom: 2px solid var(--color-dark);
+  margin-bottom: var(--spacing-m);
+}
+
+.color-1 {
+  color: var(--color-1);
+}
+
+.color-2 {
+  color: var(--color-2);
+}
+
+.color-3 {
+  color: var(--color-3);
+}
+
+.is-hidden {
+  display: none;
+}
+
+.is-clickable {
+  cursor: pointer;
+}
+
+.bg-color-1 {
+  background: var(--color-1);
+}
+
+.bg-color-2 {
+  background: var(--color-2);
+}
+
+.bg-color-3 {
+  background: var(--color-3);
+}
+
+.font-size-xs {
+  font-size: var(--font-size-xs);
+}
+
+.font-size-s {
+  font-size: var(--font-size-s);
+}
+
+.font-size-m {
+  font-size: var(--font-size-m);
+}
+
+.font-size-l {
+  font-size: var(--font-size-l);
+}
+
+.font-size-xl {
+  font-size: var(--font-size-xl);
+}
+
+.inline {
+  display: inline;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.row.maxed-spaced {
+  justify-content: space-between;
+}
+
+.row.spaced {
+  justify-content: space-around;
+}

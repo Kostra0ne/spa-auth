@@ -1,0 +1,11 @@
+#footer-main {
+  position: relative;
+  top: var(--height-header);
+  padding: 40px 20px 60px;
+  height: var(--height-footer);
+  background: var(--color-dark);
+  color: var(--color-2);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

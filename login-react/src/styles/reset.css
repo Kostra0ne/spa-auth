@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Avenir;
+  font-style: normal;
+  font-weight: bold;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+img {
+  display: block;
+}
+
+a {
+  color: #44607c;
+  text-decoration: none;
+}
+
+hr {
+  margin: 20px 0;
+}
+
+p {
+  margin: 10px 0 20px;
+}
+
+ul {
+  padding-left: 20px;
+}
