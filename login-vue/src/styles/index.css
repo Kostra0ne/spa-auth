@@ -1,0 +1,34 @@
+.is-hidden {
+  display: none;
+}
+
+.is-clickable {
+  cursor: pointer;
+}
+
+.inline {
+  display: inline;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.row.maxed-spaced {
+  justify-content: space-between;
+}
+
+.row.spaced {
+  justify-content: space-around;
+}
+
+.title {
+  max-width: max-content;
+  border-bottom: 2px solid var(--color-dark);
+  margin-bottom: 20px;
+}
