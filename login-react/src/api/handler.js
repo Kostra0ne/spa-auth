@@ -20,6 +20,7 @@ export function apiHandler() {
 
       // on essaie de récupérer le token d'auth dans le local storage
       // READ THE DOC : https://jwt.io/
+      // et aussi ... https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage
       const localAuthToken = window.localStorage.getItem(tokenName);
       // console.log("auth token ? >>> ", localAuthToken);
 

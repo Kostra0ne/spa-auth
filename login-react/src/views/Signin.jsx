@@ -15,7 +15,7 @@ export default class Signin extends Component {
   handleInput = (e) => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); //  no page refresh
     this.context.signin(this.state, () => {
       this.props.history.push("/dashboard");
     });

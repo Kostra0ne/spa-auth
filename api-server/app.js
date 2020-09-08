@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 // CORS SETUP
-app.use(cors(["http://localhost:3000", "http://localhost:8080"]));
+app.use(cors(["http://localhost:3000", "http://localhost:8080"])); // obligatoire pour accepter les appels ajax entrant
 
 // API CALL LOGGIN
 app.use(morgan("dev"));

@@ -50,6 +50,9 @@ export default class AuthProvider extends Component {
    */
   deleteLocalAuthToken = () => window.localStorage.removeItem(tokenName);
 
+
+  isAdmin = () => this.state.currentUser && this.state.currentUser === "admin";
+
   /**
    * Met à jour l'user courant dans le Contexte
    */
@@ -92,7 +95,7 @@ export default class AuthProvider extends Component {
     } catch (err) {
       const method = err.response.status.toString().startsWith("4")
         ? "warn"
-        : "error";
+        : "error"; // facultatif : outup un console.error OU console.warn en fonction du status retourné par le backend
       console[method](err.response.data);
     }
   };
@@ -117,12 +120,14 @@ export default class AuthProvider extends Component {
   render() {
     //  Setup all the values/functions you want to expose to anybody reading
     // from the AuthContext.
+    // écrire ici les méthodes et propriétés que vous souhaitez rendre accessible depuis les Consumers du Context d'authentification
     const authValues = {
       currentUser: this.state.currentUser,
       setCurrentUser: this.setCurrentUser,
       signin: this.signin,
       signup: this.signup,
       signout: this.signout,
+      isAdmin: this.isAdmin,
       isSignedIn: this.isSignedIn()
     };
 

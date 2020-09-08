@@ -4,7 +4,7 @@ import AuthContext from "./AuthContext";
 
 export const ProtectedRoute = ({ component: Component, ...rest }) => (
   <AuthContext.Consumer>
-    {({ isSignedIn }) => (
+    {({ isSignedIn }) => ( // destructuration de isSignedIn (une valeur du contexte ...)
       <Route
         render={(props) => {
           return isSignedIn ? (

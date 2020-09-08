@@ -98,7 +98,7 @@ router.post("/signup", uploader.single("avatar"), async (req, res, next) => {
   } else {
     try {
       const previousUser = await userModel.findOne({ email: user.email });
-      console.log(previousUser);
+      // console.log(previousUser);
       if (previousUser) {
         return res.status(422).json({
           msg: "Désolé, cet email n'est pas disponible.",

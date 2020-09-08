@@ -5,7 +5,8 @@ import { apiHandler } from "./../api/handler";
 const handler = apiHandler();
 
 export default class Contact extends Component {
-  state = { // définition de valeurs de base pour les tests de dev ("mettre à chaîne vide une fois dev ok")
+  state = {
+    // définition de valeurs de base pour les tests de dev ("mettre à chaîne vide une fois dev ok")
     full_name: "test user",
     email: "foo@bar.com",
     subject: "whatever",
@@ -40,19 +41,41 @@ export default class Contact extends Component {
         <label htmlFor="full_name" className="label">
           full name
         </label>
-        <input id="full_name" type="text" className="input"  defaultValue={this.state.full_name}/>
+        <input
+          name="full_name"
+          id="full_name"
+          type="text"
+          className="input"
+          defaultValue={this.state.full_name}
+        />
         <label htmlFor="email" className="label">
           email
         </label>
-        <input type="email" className="input" defaultValue={this.state.email}/>
-        <label htmlFor="subject" className="label" >
+        <input
+          name="email"
+          type="email"
+          className="input"
+          defaultValue={this.state.email}
+        />
+        <label htmlFor="subject" className="label">
           subject
         </label>
-        <input id="subject" type="text" className="input"  defaultValue={this.state.subject}/>
+        <input
+          name="subject"
+          id="subject"
+          type="text"
+          className="input"
+          defaultValue={this.state.subject}
+        />
         <label htmlFor="message" className="label">
           message
         </label>
-        <textarea id="message" className="input" defaultValue={this.state.message}></textarea>
+        <textarea
+          name="message"
+          id="message"
+          className="input"
+          defaultValue={this.state.message}
+        ></textarea>
         <button className="btn">ok</button>
       </form>
     );

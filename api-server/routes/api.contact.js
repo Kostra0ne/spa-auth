@@ -2,9 +2,9 @@ const router = new require("express").Router();
 const nodemailer = require("nodemailer");
 const mail_host = "smtp.mailtrap.io";
 const mail_host_port = 2525;
-const mail_user_address = "f08f8780fd-bcb345@inbox.mailtrap.io";
-const mail_user_name = "1ff0035ace5618";
-const mail_user_pass = "98c3fbd780464d";
+const mail_user_address = "2defa0ebdc-21a359@inbox.mailtrap.io";
+const mail_user_name = "19ab2386b3255d";
+const mail_user_pass = "34c6492721d05f";
 
 
 // DOCS

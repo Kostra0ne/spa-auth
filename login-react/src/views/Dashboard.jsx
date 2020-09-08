@@ -6,7 +6,7 @@ export default function Dashboard() {
   // dans un component fonctionnel, on accède au contexte via le "hook" useContext
   // read the doc : https://fr.reactjs.org/docs/hooks-reference.html
   const AuthContextValue = useContext(AuthContext);
-  // console.log("AuthContextValue ? >>> ", AuthContextValue);
+  console.log("AuthContextValue ? >>> ", AuthContextValue);
 
   return (
     Boolean(AuthContextValue.currentUser) && (
