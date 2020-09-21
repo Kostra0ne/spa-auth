@@ -1,8 +1,8 @@
 <template>
-  <div class="avatar" :style="{'background-image': `url(${tmpURL || avatarImg})`}">
-    <form v-if="isEditable">
-      <label for="avatar" class="label">
-        <font-awesome-icon icon="user" />
+  <div class="avatar" :style="{'background-image': `url(${tmpURL || avatar})`}">
+    <form v-if="isEditable || isUpdatable" id="form-avatar">
+      <label for="avatar" class="label" v-if="!tmpURL && !avatar">
+        <font-awesome-icon icon="user" size="2x" />
       </label>
       <input id="input_file" type="file" class="is-hidden" @change="handleAvatar" accept="image/*" />
       <label for="input_file">
@@ -20,7 +20,10 @@ export default {
     };
   },
   name: "Avatar",
-  props: ["avatar", "isEditable"],
+  props: ["avatar", "isEditable", "isUpdatable"],
+  created() {
+    if (Boolean(this.isUpdatable) && Boolean(this.isEditable)) throw new Error("Avatar componenet error : Attention, choisir entre les props isEditable ET isUpdatable, pas les deux en même temps")
+  },
   computed: {
     avatarImg() {
       if (this.tmpURL) return this.tmpURL;
@@ -31,7 +34,15 @@ export default {
   },
   methods: {
     handleAvatar(e) {
-      this.tmpURL = URL.createObjectURL(e.target.files[0]);
+      const fileObject = e.target.files[0];
+      this.tmpURL = URL.createObjectURL(fileObject);
+
+      if (this.isUpdatable) {
+        const fd = new FormData();
+        fd.append("avatar", fileObject);
+        this.$store.dispatch("user/updateAvatar", fd);
+
+      } else if (this.isEditable) this.$emit("avatar-change", fileObject);
     }
   }
 };
@@ -61,5 +72,12 @@ export default {
 .avatar .icon:hover {
   color: var(--color-dark);
   background: var(--color-success);
+}
+#form-avatar {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

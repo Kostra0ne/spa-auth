@@ -49,7 +49,7 @@ export default {
           this.$router.push("/dashboard");
         })
         .catch(err => {
-          console.log(err.message);
+          console.error(err.message);
         });
     }
   }
