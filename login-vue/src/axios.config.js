@@ -1,6 +1,8 @@
 import axios from "axios";
 import auth from "./auth";
 
+// https://github.com/axios/axios#interceptors
+
 axios.interceptors.request.use(
   config => {
     // Ce code est exécuté avant l'envoi de chaque requête (req) axios
