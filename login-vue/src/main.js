@@ -13,6 +13,7 @@ import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
 // AJOUT D' ICONE(S) A LA LIB
 library.add(faBars);
 library.add(faUser);

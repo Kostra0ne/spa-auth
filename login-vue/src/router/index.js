@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import auth from "@/auth/";
-console.log(auth);
+import store from "@/store/";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -50,10 +51,16 @@ const routes = [
     path: "/dashboard",
     name: "Dashboard",
     beforeEnter: (to, from, next) => {
+      console.log(store.getters["user/current"]);
       // on vérifie l'état de connexion:
       if (!auth.getLocalAuthToken()) next("/signin");
       // un utilisateur non connecté sera redirigé vers le signin...
       else next();
+      // si besoin d'accéder à user,   on importe le store en début de fichier et on peut accéder à user via le getter prévu
+      // if (!auth.getLocalAuthToken() || store.getters["user/current"].role !== "admin") {
+      //   auth.deleteLocalAuthToken();
+      //   next("/signin");
+      // }
     },
     component: () =>
       import(/* webpackChunkName: "signup" */ "../views/Dashboard.vue")

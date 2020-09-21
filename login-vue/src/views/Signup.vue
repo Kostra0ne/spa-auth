@@ -25,7 +25,6 @@
       v-model="user.email"
       autocomplete="email"
     />
-
     <label for="password" class="label">password</label>
     <input
       id="password"
@@ -34,7 +33,7 @@
       v-model="user.password"
       autocomplete="current-password"
     />
-    <Avatar v-if="user.avatar" :avatar="user.avatar" />
+    <Avatar :avatar="user.avatar" :isEditable="true" v-on:avatar-change="updateAvatar" />
     <button class="btn">ok</button>
     <hr />
     <p>
@@ -64,17 +63,22 @@ export default {
     Avatar
   },
   methods: {
-    updateAvatar(image) {
-      console.log(image);
+    updateAvatar(fileObject) {
+      this.user.avatar = fileObject;
     },
     signup() {
-      const fd = new FormData(); // form data nécessaire pour envoyer des fichiers images (files)
-      fd.append("first_name", this.user.first_name);
+      const fd = new FormData(); // form data nécessaire pour envoyer des fichiers images (files);
+      // check the doc = https://developer.mozilla.org/fr/docs/Web/API/FormData
+      fd.append("first_name", this.user.first_name); // on associe des clé / valeur à l'objet fd (formData)
       fd.append("last_name", this.user.last_name);
       fd.append("email", this.user.email);
       fd.append("password", this.user.password);
       if (this.user.avatar) fd.append("avatar", this.user.avatar);
-      this.$store.dispatch("user/signup", fd); // on utilise
+      this.$store.dispatch("user/signup", fd); // on utilise le store ...
+      // quand on utilise la fonction dispatch du store => on fait référence à une action du store
+      // ... afficher un message de confirmation à la suite ...
+      // ou utiliser le router pour faire une redirection
+      // exemple: this.$router.push('/signin');
     }
   }
 };

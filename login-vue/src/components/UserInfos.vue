@@ -10,10 +10,12 @@
     />
     <font-awesome-icon
       v-if="isEditMode"
-      @click="() => {
+      @click="
+        () => {
           toggleEditMode();
-          updateUser()
-        }"
+          updateUser();
+        }
+      "
       title="save"
       class="is-clickable icon save"
       icon="save"
@@ -21,21 +23,27 @@
     <p
       class="info"
       :contenteditable="isEditMode"
-      :class="{'is-active': isEditMode}"
-      @keyup="(e) => handleInput(e, 'first_name')"
-    >{{currentUser.first_name }}</p>
+      :class="{ 'is-active': isEditMode }"
+      @keyup="e => handleInput(e, 'first_name')"
+    >
+      {{ currentUser.first_name }}
+    </p>
     <p
       class="info"
       :contenteditable="isEditMode"
-      :class="{'is-active': isEditMode}"
-      @keyup="(e) => handleInput(e, 'last_name')"
-    >{{currentUser.last_name }}</p>
+      :class="{ 'is-active': isEditMode }"
+      @keyup="e => handleInput(e, 'last_name')"
+    >
+      {{ currentUser.last_name }}
+    </p>
     <p
       class="info"
       :contenteditable="isEditMode"
-      :class="{'is-active': isEditMode}"
-      @keyup="(e) => handleInput(e, 'email')"
-    >{{currentUser.email }}</p>
+      :class="{ 'is-active': isEditMode }"
+      @keyup="e => handleInput(e, 'email')"
+    >
+      {{ currentUser.email }}
+    </p>
   </div>
 </template>
 
@@ -59,13 +67,12 @@ export default {
       this.isEditMode = !this.isEditMode;
     },
     updateUser() {
-      const payload = { _id: this.$props.currentUser._id };
+      const payload = { _id: this.currentUser._id };
       for (let prop in this.updatedUser) {
         if (this.updatedUser[prop]) {
           payload[prop] = this.updatedUser[prop];
         }
       }
-      console.log(payload);
       this.$store.dispatch("user/update", payload);
     }
   },
@@ -87,7 +94,7 @@ export default {
 }
 
 #user-infos .info {
-    padding: 6px;
+  padding: 6px;
 }
 
 #user-infos .icon {
