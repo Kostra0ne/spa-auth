@@ -1,6 +1,7 @@
 const router = new require("express").Router();
 const UserModel = require("./../models/User");
 const auth = require("./../auth");
+const uploader = require("./../config/cloudinary");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -33,5 +34,27 @@ router.patch("/:id", auth.authenticate, async (req, res, next) => {
     next(err);
   }
 });
+
+router.patch(
+  "/:id/avatar",
+  uploader.single("avatar"),
+  async (req, res, next) => {
+    if (!req.file)
+      return res
+        .status(401)
+        .json({ msg: "Avatar file object is needed here !!!" });
+
+    try {
+      const updatedUser = await UserModel.findByIdAndUpdate(
+        req.params.id,
+        { avatar: req.file.path },
+        { new: true }
+      );
+      res.json(updatedUser);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
 
 module.exports = router;
