@@ -41,11 +41,9 @@ router.post("/", async (req, res, next) => {
   console.log(req.body);
   sendMail(req.body)
     .then(() => {
-      console.log("?? mail res");
       res.status(200).json("todo/contact");
     })
     .catch((err) => {
-      console.error("???", err);
       res.status(500).json("todo/contact");
     });
 });
