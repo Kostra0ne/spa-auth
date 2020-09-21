@@ -2,7 +2,7 @@
   <div>
     <h1 class="title">Dashboard</h1>
     <p v-if="currentUser">Welcome {{ currentUser.first_name }} !</p>
-    <Avatar v-if="currentUser" :avatar="currentUser.avatar" :isUpdatable="true" :isEditable="true" />
+    <Avatar v-if="currentUser" :avatar="currentUser.avatar" :isUpdatable="true" />
     <hr />
     <UserInfos :currentUser="currentUser" />
     <div v-if="currentUser && currentUser.role === 'admin'">ADMIN LIKS HERE</div>
